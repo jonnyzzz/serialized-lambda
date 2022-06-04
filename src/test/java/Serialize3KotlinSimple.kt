@@ -1,16 +1,16 @@
-import ExternalProcess.executeRunnable
+import ExternalProcessWithSerialization.executeRunnable
 import org.junit.Test
 
-class Take1_Kotlin_Simple {
+class Serialize3KotlinSimple {
   @Test
-  fun test1_LambdaFromJava() {
+  fun test1LambdaFromJava() {
     //setup environment
     executeRunnable { println("This is code in external process") }
     //assertions go here
   }
 
   @Test
-  fun test2_LambdaFromJavaWithLocalVar() {
+  fun test2LambdaFromJavaWithLocalVar() {
     //setup environment
     val localVariable = System.currentTimeMillis()
     executeRunnable { println("This is code in external process $localVariable") }

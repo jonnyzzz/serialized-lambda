@@ -1,22 +1,21 @@
 import org.junit.Test;
 
-import java.io.Serializable;
+public class Ctor1JavaSimple {
 
-public class Take2_Java_Serializable {
   @Test
-  public void test1_LambdaFromJava() {
+  public void test1LambdaFromJava() {
     //setup environment
-    ExternalProcess.executeSerializableRunnable(() -> {
+    CtorExternalProcess.executeRunnable(() -> {
       System.out.println("This is code in external process");
     });
     //assertions go here
   }
 
   @Test
-  public void test2_LambdaFromJavaWithLocalVar() {
+  public void test2LambdaFromJavaWithLocalVar() {
     //setup environment
     var localVariable = System.currentTimeMillis();
-    ExternalProcess.executeSerializableRunnable(() -> {
+    CtorExternalProcess.executeRunnable(() -> {
       System.out.println("This is code in external process " + localVariable);
     });
     //assertions go here

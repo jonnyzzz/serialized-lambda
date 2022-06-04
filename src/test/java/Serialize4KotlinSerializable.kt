@@ -1,7 +1,7 @@
-import ExternalProcess.executeSerializableRunnable
+import ExternalProcessWithSerialization.executeSerializableRunnable
 import org.junit.Test
 
-class Take2_Kotlin_Serializable {
+class Serialize4KotlinSerializable {
   @Test
   fun test1_LambdaFromJava() {
     //setup environment

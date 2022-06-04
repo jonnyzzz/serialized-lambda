@@ -1,21 +1,20 @@
 import org.junit.Test;
 
-public class Take1_Java_Simple {
-
+public class Serialize1JavaSimple {
   @Test
-  public void test1_LambdaFromJava() {
+  public void test1LambdaFromJava() {
     //setup environment
-    ExternalProcess.executeRunnable(() -> {
+    ExternalProcessWithSerialization.executeRunnable(() -> {
       System.out.println("This is code in external process");
     });
     //assertions go here
   }
 
   @Test
-  public void test2_LambdaFromJavaWithLocalVar() {
+  public void test2LambdaFromJavaWithLocalVar() {
     //setup environment
     var localVariable = System.currentTimeMillis();
-    ExternalProcess.executeRunnable(() -> {
+    ExternalProcessWithSerialization.executeRunnable(() -> {
       System.out.println("This is code in external process " + localVariable);
     });
     //assertions go here
