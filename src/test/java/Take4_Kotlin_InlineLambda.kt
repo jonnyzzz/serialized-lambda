@@ -1,11 +1,12 @@
-import ExternalProcess.executeRunnable
+import ExternalProcess.executeCode
+import ExternalProcess.executeInlineCode
 import org.junit.Test
 
-class Take1_Kotlin_Simple {
+class Take4_Kotlin_InlineLambda {
   @Test
   fun test1_LambdaFromJava() {
     //setup environment
-    executeRunnable { println("This is code in external process") }
+    executeInlineCode { println("This is code in external process") }
     //assertions go here
   }
 
@@ -13,7 +14,7 @@ class Take1_Kotlin_Simple {
   fun test2_LambdaFromJavaWithLocalVar() {
     //setup environment
     val localVariable = System.currentTimeMillis()
-    executeRunnable { println("This is code in external process $localVariable") }
+    executeInlineCode { println("This is code in external process $localVariable") }
     //assertions go here
   }
 }
