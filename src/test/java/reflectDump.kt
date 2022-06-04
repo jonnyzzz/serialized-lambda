@@ -1,4 +1,3 @@
-import Take2_Java_Serializable.SerializableRunnable
 import java.io.ByteArrayOutputStream
 import java.io.ObjectInputStream
 import java.io.ObjectOutputStream
