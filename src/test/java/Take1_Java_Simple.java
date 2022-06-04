@@ -1,6 +1,6 @@
 import org.junit.Test;
 
-public class ExampleJavaTest {
+public class Take1_Java_Simple {
 
   @Test
   public void testLambdaFromJava() {
@@ -10,7 +10,7 @@ public class ExampleJavaTest {
       System.out.println("This is code in external process");
     });
 
-    //do some test asserts
+    //assertions go here
   }
 
   @Test
@@ -23,6 +23,6 @@ public class ExampleJavaTest {
       System.out.println("This is code in external process " + localVariable);
     });
 
-    //do some test asserts
+    //assertions go here
   }
 }
