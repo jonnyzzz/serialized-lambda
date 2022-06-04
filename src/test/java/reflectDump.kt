@@ -2,9 +2,22 @@ import java.io.ByteArrayOutputStream
 import java.io.ObjectInputStream
 import java.io.ObjectOutputStream
 
-inline fun <reified R : Any> printTypeInfo(obj: R) {
-  val type = R::class.java
 
+object ExternalProcess {
+  @JvmStatic
+  fun executeCode(action: () -> Unit) {
+    executeLambdaRemotely(action)
+  }
+
+  @JvmStatic
+  fun executeRunnable(action: Runnable) {
+    executeLambdaRemotely(action)
+  }
+}
+
+
+inline fun <reified R : Any> executeLambdaRemotely(obj: R) {
+  val type = R::class.java
   println(buildString {
     appendLine("Class ${type.name}")
     appendConstructors(type)
@@ -54,8 +67,13 @@ fun StringBuilder.trySaveLoadJvm(obj: Any) {
     val reloaded = bytes.inputStream().use { bis ->
       ObjectInputStream(bis).readObject()
     }
+
+    require(reloaded.javaClass == obj.javaClass) {
+      "Reloaded type is ${reloaded.javaClass.name} should be the same as ${obj.javaClass.name}"
+    }
+
     appendLine("  Standard Serialization works")
   } catch (e: Exception) {
-    appendLine("  Standard Serialization failed: ${e.message}")
+    appendLine("  Standard Serialization failed: $e")
   }
 }
