@@ -2,9 +2,8 @@ import org.junit.Test
 import java.nio.file.Path
 
 class InlineFunctionJavaP {
-
-  inline fun showLambdaBytecode(crossinline action: () -> Unit) {
-    val holder = object : Runnable {
+  private inline fun showLambdaBytecode(crossinline action: () -> Unit) {
+    val holder = object : Runnable, java.io.Serializable {
       override fun run() {
         action()
       }

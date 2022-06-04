@@ -3,6 +3,8 @@ import java.io.ObjectInputStream
 import java.io.ObjectOutputStream
 import java.io.Serializable
 
+interface KSerializableRunnable : Runnable, Serializable
+
 object ExternalProcessWithSerialization {
   inline fun executeInlineCode(crossinline action: () -> Unit) {
     val holder = object : Runnable, Serializable {
@@ -26,6 +28,11 @@ object ExternalProcessWithSerialization {
 
   @JvmStatic
   fun executeSerializableRunnable(action: SerializableRunnable) {
+    executeLambdaRemotely(action) { it.run() }
+  }
+
+  @JvmStatic
+  fun executeKSerializableRunnable(action: KSerializableRunnable) {
     executeLambdaRemotely(action) { it.run() }
   }
 

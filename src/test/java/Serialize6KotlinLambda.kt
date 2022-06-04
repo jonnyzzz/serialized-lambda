@@ -1,10 +1,10 @@
 import org.junit.Test
 
-class Serialize6KotlinInlineLambda {
+class Serialize6KotlinLambda {
   @Test
   fun test1_LambdaFromJava() {
     //setup environment
-    ExternalProcessWithSerialization.executeInlineCode { println("This is code in external process") }
+    ExternalProcessWithSerialization.executeCode { println("This is code in external process") }
     //assertions go here
   }
 
@@ -12,7 +12,7 @@ class Serialize6KotlinInlineLambda {
   fun test2_LambdaFromJavaWithLocalVar() {
     //setup environment
     val localVariable = System.currentTimeMillis()
-    ExternalProcessWithSerialization.executeInlineCode { println("This is code in external process $localVariable") }
+    ExternalProcessWithSerialization.executeCode { println("This is code in external process $localVariable") }
     //assertions go here
   }
 }
